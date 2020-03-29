@@ -17,13 +17,13 @@ namespace MikroTikTestingApp
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             input = value as string;
-            number = 0;
-            if (input.Length - 12 > 0)
-                int.TryParse(input.Substring(0, input.Length - 12), out number);
-            if (number > 10)
-                return Brushes.Blue;//Red
+            number = -76;//xd
+            if (input.Length - 9 > 0)
+                int.TryParse(input.Substring(0, input.Length - 9), out number);
+            if (number >= -75 && number != 0)
+                return Brushes.LightGreen;//Red
             else
-                return Brushes.LightGreen; //return DependencyProperty.UnsetValue;
+                return Brushes.Red; //return DependencyProperty.UnsetValue;
 
             //    default:
             //        return DependencyProperty.UnsetValue;

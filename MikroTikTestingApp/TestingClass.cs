@@ -21,10 +21,10 @@ namespace MikroTikTestingApp
             this.maxCycles = maxCycles;
             counter = 0;
             timer = new System.Timers.Timer();
-            timer.Interval = 600;
+            timer.Interval = 60000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
-            CallEventElapsedTime();
+            try { CallEventElapsedTime(); }catch(Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
         }
 
         public void StopTestAndTimer()
@@ -33,6 +33,13 @@ namespace MikroTikTestingApp
                 timer.Dispose();
             MVVMmanager.isTesting = false;
             CallEventElapsedTime();
+        }
+
+        private void StopTimerQuickly()
+        {
+            if (timer != null)
+                timer.Dispose();
+            MVVMmanager.isTesting = false;
         }
 
         private void OnTimerEllapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -48,7 +55,9 @@ namespace MikroTikTestingApp
 
         public void CallEventElapsedTime()
         {
-            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), "100Mbs", "-67dB/-77dB");
+            string EthernetRate = MToperationClass.MikrotikGetEthernetRate();
+            string WirelessSignal = MToperationClass.MikrotikGetWirelessSignal();
+            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), EthernetRate, WirelessSignal);
             ElapsedTime?.Invoke();
         }
     }

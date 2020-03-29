@@ -22,7 +22,7 @@ namespace MikroTikTestingApp.Views
     /// </summary>
     public partial class MainView : UserControl
     {
-        private bool isDBclear;
+        //private bool isDBclear;
         public MainView()
         {
             InitializeComponent();
@@ -43,8 +43,9 @@ namespace MikroTikTestingApp.Views
                 return;
             try { int.Parse(CyclesCount.Text); } catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
             if(int.Parse(CyclesCount.Text) < 2) { MessageBox.Show("Minimal number of surveys is 2"); return; }
-            if (!isDBclear) { MessageBox.Show("You have to clear DB before next Test!"); return; }
-            isDBclear = false;
+            if (!MVVMmanager.isDBClear) { MessageBox.Show("You have to clear DB before next Test!"); return; }
+            if (!CheckCredentials()) return;
+            MVVMmanager.isDBClear = false;
             MVVMmanager.isTesting = true;
             MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text));
         }
@@ -66,6 +67,16 @@ namespace MikroTikTestingApp.Views
             DataTable DT = SQLiteClass.ExportToFile();
             SaveAFile(DT);
         }
+        //-------------------------------------------------------------------------------
+        private bool CheckCredentials()
+        {
+            if(MToperationClass.IP == string.Empty || MToperationClass.Login == string.Empty || MToperationClass.EtherInt == string.Empty || MToperationClass.WirelessInt == string.Empty)
+            {
+                MessageBox.Show("Before testing set up Mikrotik connection credentials!");
+                return false;
+            }
+            return true;
+        }
 
         private void AreUsure()
         {
@@ -73,7 +84,7 @@ namespace MikroTikTestingApp.Views
             if (dialogResult == System.Windows.Forms.DialogResult.Yes)
             {
                 SQLiteClass.ClearTables();
-                isDBclear = true;
+                MVVMmanager.isDBClear = true;
             }
             else if (dialogResult == System.Windows.Forms.DialogResult.No)
             {

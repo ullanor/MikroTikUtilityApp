@@ -18,12 +18,12 @@ namespace MikroTikTestingApp
         {
             input = value as string;
             number = 0;
-            if(input.Length-12 > 0)
-                int.TryParse(input.Substring(0,input.Length-12), out number);
-            if(number > 10)
-                return Brushes.Red;
+            if(input.Length-13 > 0)
+                int.TryParse(input.Substring(0,input.Length-13), out number);
+            if(number >= 100)
+                return Brushes.LightGreen;
             else
-                return Brushes.LightGreen; //return DependencyProperty.UnsetValue;
+                return Brushes.Red; //return DependencyProperty.UnsetValue;
 
             //    default:
             //        return DependencyProperty.UnsetValue;

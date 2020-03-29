@@ -75,6 +75,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MK.cs" />
+    <Compile Include="MToperationClass.cs" />
     <Compile Include="MVVMmanager.cs" />
     <Compile Include="TableConditionClasses\NameToBrushConverterWir.cs" />
     <Compile Include="SQLiteClass.cs" />

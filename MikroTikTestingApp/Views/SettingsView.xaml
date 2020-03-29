@@ -7,10 +7,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Background="#FFEAEAEA">
     <Grid>
-        <StackPanel Grid.Column="0" Grid.Row="1">
-            <!--<TextBox x:Name="textBlock" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="48" Height="300"/>-->
-            <Button x:Name="TestServer" Content="TestCmd2" Focusable="False" FontSize="18" Height="50"/>
-            <Button x:Name="PowerOffServer" Content="PowerOff2" Focusable="False" FontSize="18" Height="50"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox Height="auto" Text="MT test" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Green"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox FontSize="18" Height="50" Width="auto" Text="IP: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox x:Name="MTIP" FontSize="18" Height="50" Width="160" Text="192.168.0.1" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="(API port: 8728)" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Login: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox x:Name="MTLogin" FontSize="18" Height="50" Width="160" Text="admin" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Password: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox x:Name="MTPassword" FontSize="18" Height="50" Width="160" Text="" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="GetInterfaces" Content="Get Interfaces" Focusable="False" FontSize="18" Height="50" Click="GetInterfaces_Click"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Ether: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <ComboBox x:Name="MyEthernet" FontSize="18" Height="50" Margin="5" Width="auto"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Wireless: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <ComboBox x:Name="MyWireless" FontSize="18" Height="50" Margin="5" Width="auto"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="SaveSettings" Content="Save Settings" Focusable="False" FontSize="18" Height="50" Margin="5" Click="SaveSettings_Click"/>
+            <Button x:Name="LoadSettings" Content="Load Settings" Focusable="False" FontSize="18" Height="50" Click="LoadSettings_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
