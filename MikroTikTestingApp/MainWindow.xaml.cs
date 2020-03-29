@@ -21,9 +21,13 @@ namespace MikroTikTestingApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int testCount = 0;
         public MainWindow()
         {
             InitializeComponent();
+            SQLiteClass.CreateTables();
+            MVVMmanager.TS = new TestingClass();
+            MVVMmanager.TS.ElapsedTime += CheckTestStatus;
         }
 
         private void WindowIsLoaded(object sender, RoutedEventArgs e)
@@ -36,14 +40,38 @@ namespace MikroTikTestingApp
             DataContext = new MainViewModel();
         }
 
-        private void CameraView_Click(object sender, RoutedEventArgs e)
+        private void StatusView_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new StatusViewModel();
+        }
+
+        private void SettingsView_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new SettingsViewModel();
         }
 
-        private void StatusView_Click(object sender, RoutedEventArgs e)
+        private void WirelessStatusView_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new StatusViewModel();
+            DataContext = new StatusWirViewModel();
+        }
+
+        private void CheckTestStatus()
+        {
+            Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                testCount++;
+                testTime.Text = testCount.ToString();
+                testStatus.Text = MVVMmanager.isTesting.ToString();
+                if (MVVMmanager.isTesting)
+                    testStatus.Background = Brushes.Green;
+                else testStatus.Background = Brushes.White;
+            });
+        }
+
+        private void clearButton_Click(object sender, RoutedEventArgs e)
+        {
+            testCount = 0;
+            testTime.Text = string.Empty;
         }
 
         //private void CameraView_Click(object sender, RoutedEventArgs e)

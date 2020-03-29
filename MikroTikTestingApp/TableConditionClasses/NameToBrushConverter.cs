@@ -11,11 +11,15 @@ namespace MikroTikTestingApp
 {
     class NameToBrushConverter : IValueConverter
     {
+        string input = string.Empty;
+        int number = 0;
+
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            string input = value as string;
-            int number = 0;
-            int.TryParse(input, out number);
+            input = value as string;
+            number = 0;
+            if(input.Length-12 > 0)
+                int.TryParse(input.Substring(0,input.Length-12), out number);
             if(number > 10)
                 return Brushes.Red;
             else

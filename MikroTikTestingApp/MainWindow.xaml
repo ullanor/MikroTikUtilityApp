@@ -9,7 +9,10 @@
         mc:Ignorable="d"
         Title="MT-pablo" Height="450" Width="800" Background="#FF1D916C" Loaded="WindowIsLoaded" WindowStyle="ToolWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <DataTemplate x:Name="CameraViewTemplate" DataType="{x:Type viewmodels:SettingsViewModel}">
+        <DataTemplate x:Name="StatusWirViewTemplate" DataType="{x:Type viewmodels:StatusWirViewModel}">
+            <views:StatusWirView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Name="SettingsViewTemplate" DataType="{x:Type viewmodels:SettingsViewModel}">
             <views:SettingsView DataContext="{Binding}"/>
         </DataTemplate>
         <DataTemplate x:Name="StatusViewTamplate" DataType="{x:Type viewmodels:StatusViewModel}">
@@ -35,9 +38,13 @@
         </StackPanel>
         <!-- action buttons -->
         <StackPanel Margin="5,0,5,0" Grid.Row="1">
-            <Button x:Name="MainView" Content="main" FontSize="20" Focusable="False" Height="50" Click="MainView_Click"/>
-            <Button x:Name="CameraView" Content="cam" FontSize="20" Focusable="False" Height="50" Click="CameraView_Click"/>
-            <Button x:Name="StatusView" Content="Status" FontSize="20" Focusable="False" Height="50" Click="StatusView_Click"/>
+            <Button x:Name="MainView" Content="Main" FontSize="20" Focusable="False" Height="50" Click="MainView_Click"/>
+            <Button x:Name="SettingsView" Content="Conn Settings" FontSize="20" Focusable="False" Height="50" Click="SettingsView_Click"/>
+            <Button x:Name="StatusView" Content="Ethernet Status" FontSize="20" Focusable="False" Height="50" Click="StatusView_Click"/>
+            <Button x:Name="WirelessStatusView" Content="Wireless Status" FontSize="20" Focusable="False" Height="50" Click="WirelessStatusView_Click"/>
+            <TextBox x:Name="testStatus" Height="auto" Text="FALSE" FontSize="18" FontWeight="Bold" TextAlignment="Center" Background="White" Margin="0,50,0,0" IsReadOnly="True"/>
+            <TextBox x:Name="testTime" Height="auto" FontSize="18" FontWeight="Bold" TextAlignment="Center" IsReadOnly="True"/>
+            <Button x:Name="clearButton" Content="Clear Counter" FontSize="16" Focusable="False" Height="auto" Click="clearButton_Click"/>
         </StackPanel>
         <ContentControl Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" Content="{Binding}" Margin="0,0,0,0"/>
     </Grid>
