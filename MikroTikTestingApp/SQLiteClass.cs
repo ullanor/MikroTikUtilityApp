@@ -46,6 +46,15 @@ namespace MikroTikTestingApp
             return toReturn;
         }
         //TODO fore wireless status table
+        public static List<String> ReadFromWir()
+        {
+            List<string> toReturn = new List<string>();
+            SQLiteConnection sqlite_conn;
+            sqlite_conn = CreateConnection();
+            toReturn = ReadDataWir(sqlite_conn);
+            sqlite_conn.Close();
+            return toReturn;
+        }
 
         //for exporting to file
         public static DataTable ExportToFile()
@@ -117,6 +126,23 @@ namespace MikroTikTestingApp
             while (sqlite_datareader.Read())
             {
                 toReturn.Add(sqlite_datareader.GetString(1)+"\n"+sqlite_datareader.GetString(0));
+            }
+
+            return toReturn;
+        }
+
+        static List<string> ReadDataWir(SQLiteConnection conn)
+        {
+            List<string> toReturn = new List<string>();
+            SQLiteDataReader sqlite_datareader;
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = "SELECT * FROM MTStatus";
+
+            sqlite_datareader = sqlite_cmd.ExecuteReader();
+            while (sqlite_datareader.Read())
+            {
+                toReturn.Add(sqlite_datareader.GetString(2) + "\n" + sqlite_datareader.GetString(0));
             }
 
             return toReturn;

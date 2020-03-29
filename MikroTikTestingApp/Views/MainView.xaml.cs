@@ -58,14 +58,27 @@ namespace MikroTikTestingApp.Views
 
         private void ClearDB_Click(object sender, RoutedEventArgs e)
         {
-            SQLiteClass.ClearTables();
-            isDBclear = true;
+            AreUsure();
         }
 
         private void ExportDB_Click(object sender, RoutedEventArgs e)
         {
             DataTable DT = SQLiteClass.ExportToFile();
             SaveAFile(DT);
+        }
+
+        private void AreUsure()
+        {
+            System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("Are u sure?", "Clearing DB", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                SQLiteClass.ClearTables();
+                isDBclear = true;
+            }
+            else if (dialogResult == System.Windows.Forms.DialogResult.No)
+            {
+                //do something else
+            }
         }
 
         //exporting data to file
@@ -85,6 +98,7 @@ namespace MikroTikTestingApp.Views
                     sw.WriteLine(row["CurTime"]+" "+ row["EthStatus"] + " "+ row["WirStatus"]);
                 }
             }
+            MessageBox.Show("File was created!");
         }
     }
 }

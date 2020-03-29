@@ -11,7 +11,7 @@
         <main:StatusManager  x:Key="statusManager"/>
         <main:NameToBrushConverter x:Key="NameToBrushConverter"/>
     </UserControl.Resources>
-    <Grid Background="#FF9B3F96" DataContext="{StaticResource ResourceKey=statusManager}">
+    <Grid DataContext="{StaticResource ResourceKey=statusManager}">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
@@ -22,7 +22,7 @@
         </StackPanel>
         
         <!-- STATUS TABLE CODE STARTS HERE -->
-        <DataGrid x:Name="testGrid" Grid.Row="1">
+        <DataGrid x:Name="testGrid" Grid.Row="1" FontSize="16">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Turquoise"/>

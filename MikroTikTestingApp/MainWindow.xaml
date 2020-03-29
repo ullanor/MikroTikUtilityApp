@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:MikroTikTestingApp.ViewModels"
         xmlns:views="clr-namespace:MikroTikTestingApp.Views"
         mc:Ignorable="d"
-        Title="MT-pablo" Height="450" Width="800" Background="#FF1D916C" Loaded="WindowIsLoaded" WindowStyle="ToolWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="MT-pablo" Height="611.034" Width="1281.858" Loaded="WindowIsLoaded" WindowStyle="ToolWindow" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate x:Name="StatusWirViewTemplate" DataType="{x:Type viewmodels:StatusWirViewModel}">
             <views:StatusWirView DataContext="{Binding}"/>
@@ -22,10 +22,16 @@
             <views:MainView DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF74C7E6" Offset="0"/>
+            <GradientStop Color="#FF42B44C" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.5*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -33,8 +39,7 @@
 
         </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
-            <TextBlock x:Name="menuText" Text="Hello elo" FontSize="30" Width="auto"/>
-            <TextBlock x:Name="menuText2" Text="Hello elo" FontSize="30" Width="auto"/>
+            <TextBlock x:Name="menuText" Text="Set MT conn credentials before testing" FontSize="20" Width="auto"/>
         </StackPanel>
         <!-- action buttons -->
         <StackPanel Margin="5,0,5,0" Grid.Row="1">

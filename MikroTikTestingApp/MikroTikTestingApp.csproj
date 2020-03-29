@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MVVMmanager.cs" />
+    <Compile Include="TableConditionClasses\NameToBrushConverterWir.cs" />
     <Compile Include="SQLiteClass.cs" />
     <Compile Include="TableConditionClasses\NameToBrushConverter.cs" />
     <Compile Include="TestingClass.cs" />
