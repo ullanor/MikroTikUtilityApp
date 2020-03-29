@@ -67,6 +67,8 @@ namespace MikroTikTestingApp.Views
 
         private void LoadSettings_Click(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(path)) return;
+
             string lines = File.ReadAllText(path);
             string[] credentials = lines.Split(new char[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             MTIP.Text = credentials[0];
