@@ -37,8 +37,14 @@
             <Button x:Name="GetInterfaces" Content="Get Interfaces" Focusable="False" FontSize="18" Height="50" Click="GetInterfaces_Click"/>
             <TextBox FontSize="18" Height="50" Width="auto" Text="Ether: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
             <ComboBox x:Name="MyEthernet" FontSize="18" Height="50" Margin="5" Width="auto"/>
-            <TextBox FontSize="18" Height="50" Width="auto" Text="Wireless: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Wireless: " TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF"/>
             <ComboBox x:Name="MyWireless" FontSize="18" Height="50" Margin="5" Width="auto"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="WLANless:" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FFFF8C56"/>
+            <CheckBox x:Name="MThasWlan" Height="auto" Width="auto" VerticalAlignment="Center" Margin="5,0,0,0">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="SaveSettings" Content="Save Settings" Focusable="False" FontSize="18" Height="50" Margin="5" Click="SaveSettings_Click"/>

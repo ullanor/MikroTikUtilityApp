@@ -65,7 +65,9 @@ namespace MikroTikTestingApp.Views
                 MessageBox.Show("Choose interfaces for surveys!");
                 return;
             }
-
+            if (MThasWlan.IsChecked == true)
+                MToperationClass.dontTestWLAN = true;
+            else MToperationClass.dontTestWLAN = false;
             MToperationClass.EtherInt = MyEthernet.SelectedItem.ToString();
             MToperationClass.WirelessInt = MyWireless.SelectedItem.ToString();
             SaveToFile();
@@ -79,7 +81,7 @@ namespace MikroTikTestingApp.Views
                 string saveSave = MTPassword.Text;
                 if (saveSave == string.Empty)
                     saveSave = "none";
-                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+ saveSave + "~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~"+MToperationClass.isOlderMT+"~");
+                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+ saveSave + "~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~"+MToperationClass.isOlderMT+"~"+MToperationClass.dontTestWLAN+"~");
             }
         }
 
@@ -103,7 +105,8 @@ namespace MikroTikTestingApp.Views
 
             MToperationClass.isOlderMT = Boolean.Parse(credentials[5]);
             MTisOld.IsChecked = MToperationClass.isOlderMT;
-
+            MToperationClass.dontTestWLAN = Boolean.Parse(credentials[6]);
+            MThasWlan.IsChecked = MToperationClass.dontTestWLAN;
 
             MToperationClass.IP = MTIP.Text;
             MToperationClass.Login = MTLogin.Text;

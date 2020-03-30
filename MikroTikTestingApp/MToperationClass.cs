@@ -17,6 +17,7 @@ namespace MikroTikTestingApp
 
         //old mt test
         public static bool isOlderMT;
+        public static bool dontTestWLAN;
 
         static MK mikrotik;
         static List<string> netInterfaces;
@@ -115,6 +116,11 @@ namespace MikroTikTestingApp
         //---------------------------- WIRELESS SIGNAL and RATES -------------------------------------------------------------------------------------------
         public static string MikrotikGetWirelessSignal(out string wirelessRates)
         {
+            if (dontTestWLAN)
+            {
+                wirelessRates = "conn err";
+                return "conn err";
+            }
             contResponse = string.Empty;
             try { mikrotik = new MK(IP); }
             catch (System.Net.Sockets.SocketException)
@@ -123,7 +129,7 @@ namespace MikroTikTestingApp
                 return "conn err";
             }
             bool logged = mikrotik.Login(Login, Password, out contResponse);
-            string signal = GetWirelessSignal(logged,out wirelessRates);
+            string signal = GetWirelessSignal(logged, out wirelessRates);
             mikrotik.Close();
             return signal;
         }
@@ -134,7 +140,6 @@ namespace MikroTikTestingApp
                 WIRrates = "log err";
                 return "log err";
             }
-
             mikrotik.Send("/interface/wireless/monitor");
             mikrotik.Send($"=numbers={WirelessInt}");
             mikrotik.Send("=once=", true);

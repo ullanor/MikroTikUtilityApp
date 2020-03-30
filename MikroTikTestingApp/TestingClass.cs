@@ -22,7 +22,7 @@ namespace MikroTikTestingApp
             this.maxCycles = maxCycles;
             counter = 0;
             timer = new System.Timers.Timer();
-            timer.Interval = 6000;
+            timer.Interval = 60000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
             try { CallEventElapsedTime(); }catch(Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
