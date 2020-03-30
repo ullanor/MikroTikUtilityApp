@@ -29,7 +29,7 @@ namespace MikroTikTestingApp.Views
 
         private void GetInterfaces_Click(object sender, RoutedEventArgs e)
         {
-            GetInterfacesFromMT();
+            try { GetInterfacesFromMT(); }catch(Exception ex) { outputTest.Text = ex.ToString(); }
         }
 
         private void GetInterfacesFromMT()

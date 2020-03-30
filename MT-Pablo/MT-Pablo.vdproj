@@ -199,11 +199,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_179DD27CFB4DB1D82DD153D114EBE555"
-                    {
-                    "Name" = "8:System.Data.SQLite.Linq.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.Linq.dll"
             "TargetName" = "8:"
@@ -270,11 +265,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3B7B36B581CF830374FEDEFD93985C48"
-                    {
-                    "Name" = "8:System.Data.SQLite.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.dll"
             "TargetName" = "8:"
@@ -341,11 +331,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B3A32CB670EFB62DEDB679B0B1144955"
-                    {
-                    "Name" = "8:System.Data.SQLite.EF6.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.EF6.dll"
             "TargetName" = "8:"
@@ -454,15 +439,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MT-Pablo"
-        "ProductCode" = "8:{8E877B36-DD38-4A7B-8E0B-DEEAE66055AE}"
-        "PackageCode" = "8:{0637FECE-DE32-4221-B104-928A1A61416D}"
+        "ProductCode" = "8:{8E104028-3C83-4D57-8A6B-968F673C1C44}"
+        "PackageCode" = "8:{17D8F7E7-16A3-4BA2-96B8-A27B4D24D262}"
         "UpgradeCode" = "8:{1D825FBF-876A-4034-821E-F3FF9159096B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.3"
+        "ProductVersion" = "8:1.1.5"
         "Manufacturer" = "8:Pablo"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
