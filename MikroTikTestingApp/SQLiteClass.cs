@@ -11,6 +11,7 @@ namespace MikroTikTestingApp
 {
     static class SQLiteClass
     {
+        static string path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MTpabloDB.db";
         public static void CreateTables()
         {
             SQLiteConnection sqlite_conn;
@@ -72,7 +73,7 @@ namespace MikroTikTestingApp
         {
             SQLiteConnection sqlite_conn;
             // Create a new database connection:
-            sqlite_conn = new SQLiteConnection("Data Source=MTpabloDB.db; Version = 3; New = True; Compress = True; ");
+            sqlite_conn = new SQLiteConnection($"Data Source={path}; Version = 3; New = True; Compress = True; ");
             // Open the connection:
             try
             {

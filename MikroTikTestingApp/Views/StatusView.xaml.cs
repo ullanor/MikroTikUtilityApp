@@ -29,99 +29,6 @@ namespace MikroTikTestingApp.Views
 
             //just for testing todo (get data from database)!--
             trueList = SQLiteClass.ReadFromEther();
-            //trueList = new List<string>
-            //{
-            //"abc\nadsf",
-            //"bac",
-            //"lkdsj\nlsdfj",
-            //"adfasfd",
-            //"adfads\nfdsaf",
-            //"aaa",
-            //"ghjkk",
-            //"1000Mbs\n10.41.24",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn","gorn", "gorn","gorn",
-            //"10Mbs\n11:21:22","11Mbs\n12:23:44",
-            //"koniec"
-            //};
-            //----------------------------------------------------
-
             FillTable();
         }
 
@@ -135,20 +42,20 @@ namespace MikroTikTestingApp.Views
         {
             List<string> testList = trueList;
             int numberOfRecords = testList.Count;
-            int units = (numberOfRecords / 10) + 1;
+            int units = 0;
+            if (numberOfRecords % 10 == 0) units = numberOfRecords / 10;
+            else units = (numberOfRecords / 10) + 1;
             int rest = Math.Abs(numberOfRecords - units * 10);
             for (int i = 0; i < rest; i++)
                 testList.Add(string.Empty);
             SM.SetTextT("Surveys: "+numberOfRecords);
-            //MessageBox.Show(units + " values are " + rest + " total " + numberOfRecords);
-
 
             TableValues TV;
             for (int i = 0; i < units; i++)
             {
                 TV = new TableValues
                 {
-                    lp = i.ToString(),
+                    lp = (i+1).ToString(),
                     value1 = testList[i * 10],
                     value2 = testList[i * 10 + 1],
                     value3 = testList[i * 10 + 2],
