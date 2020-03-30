@@ -15,11 +15,17 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Height="auto" Text="MT test" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Green"/>
+        <TextBox x:Name="quickInfoText" Height="auto" Text="MT test" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Green"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox FontSize="18" Height="50" Width="auto" Text="IP: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
             <TextBox x:Name="MTIP" FontSize="18" Height="50" Width="160" Text="192.168.0.1" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
-            <TextBox FontSize="18" Height="50" Width="auto" Text="(API port: 8728)" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="(API: 8728)" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="RouterOSv &lt; 6.43" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF" Margin="5"/>
+            <CheckBox x:Name="MTisOld" Height="auto" Width="auto" VerticalAlignment="Center">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox FontSize="18" Height="50" Width="auto" Text="Login: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
@@ -37,6 +43,7 @@
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="SaveSettings" Content="Save Settings" Focusable="False" FontSize="18" Height="50" Margin="5" Click="SaveSettings_Click"/>
             <Button x:Name="LoadSettings" Content="Load Settings" Focusable="False" FontSize="18" Height="50" Click="LoadSettings_Click"/>
+            <TextBlock x:Name="outputTest" FontSize="12" Height="50" Width="auto" Margin="5" Foreground="Red"/>
         </StackPanel>
     </Grid>
 </UserControl>

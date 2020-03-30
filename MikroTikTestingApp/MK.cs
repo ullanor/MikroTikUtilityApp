@@ -26,22 +26,42 @@ namespace MikroTikTestingApp
         }
         public bool Login(string username, string password, out string response)
         {
-            response = string.Empty;
-            Send("/login");
-            Send("=name=" + username);
-            Send("=password=" + password, true);
-
-            List<string> resp = Read();
-            foreach (string text in resp)
-                response += text + "\n";
-
-            if (resp[0] == "!done")
+            if (MToperationClass.isOlderMT)
             {
-                return true;
+                response = string.Empty;
+                Send("/login", true);
+                string hash = Read()[0].Split(new string[] { "ret=" }, StringSplitOptions.None)[1];
+                Send("/login");
+                Send("=name=" + username);
+                Send("=response=00" + EncodePassword(password, hash), true);
+                if (Read()[0] == "!done")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                response = string.Empty;
+                Send("/login");
+                Send("=name=" + username);
+                Send("=password=" + password, true);
+
+                List<string> resp = Read();
+                foreach (string text in resp)
+                    response += text + "\n";
+
+                if (resp[0] == "!done")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 

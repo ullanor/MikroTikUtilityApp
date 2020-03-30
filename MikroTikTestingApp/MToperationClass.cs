@@ -15,24 +15,30 @@ namespace MikroTikTestingApp
         public static string EtherInt = string.Empty;
         public static string WirelessInt = string.Empty;
 
+        //old mt test
+        public static bool isOlderMT;
+
         static MK mikrotik;
         static List<string> netInterfaces;
         static string response = string.Empty;
         static string contResponse = string.Empty;
 
         // ---------------------- CONNECTION TEST -------------------------------
-        public static List<string> MikroTikGetInterfaces()
+        public static List<string> MikroTikGetInterfaces(out string errOutput)
         {
+            netInterfaces = new List<string>();
             contResponse = string.Empty;
             try { mikrotik = new MK(IP); }
             catch (System.Net.Sockets.SocketException sEx)
             {
-                MessageBox.Show(sEx.ToString());
+                errOutput = sEx.ToString();
+                //errOutput = "Cannot connect to Host";
                 return null;
             }
             bool logged = mikrotik.Login(Login, Password, out contResponse);
             GetInterfaces(logged);
             mikrotik.Close();
+            errOutput = string.Empty;
             return netInterfaces;
         }    
 
@@ -52,7 +58,6 @@ namespace MikroTikTestingApp
             respArray.RemoveAt(0);
             respArray.RemoveAt(respArray.Count - 1);
 
-            netInterfaces = new List<string>();
             for (int i = 0; i < respArray.Count; i++)
             {
                 if (respArray[i] == "name")

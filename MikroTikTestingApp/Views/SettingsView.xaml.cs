@@ -29,66 +29,88 @@ namespace MikroTikTestingApp.Views
 
         private void GetInterfaces_Click(object sender, RoutedEventArgs e)
         {
+            GetInterfacesFromMT();
+        }
+
+        private void GetInterfacesFromMT()
+        {
+            if (MTisOld.IsChecked == true)
+                MToperationClass.isOlderMT = true;
+            else MToperationClass.isOlderMT = false;
             MToperationClass.IP = MTIP.Text;
             MToperationClass.Login = MTLogin.Text;
             MToperationClass.Password = MTPassword.Text;
 
             List<string> interfaces = null;
-            try { interfaces = MToperationClass.MikroTikGetInterfaces(); }catch(Exception ex) { MessageBox.Show(ex.ToString()); }
-            if (interfaces == null) return;
-            if (interfaces.Count == 0) return;
+            MyEthernet.ItemsSource = interfaces;
             MyEthernet.Items.Clear();
+            MyWireless.ItemsSource = interfaces;
+            MyWireless.Items.Clear();
+
+            string errOutput = string.Empty;
+            interfaces = MToperationClass.MikroTikGetInterfaces(out errOutput);
+            outputTest.Text = errOutput;
+            if (interfaces == null || interfaces.Count == 0) return;
+
             MyEthernet.ItemsSource = interfaces;
             MyEthernet.SelectedItem = interfaces[0];
-            MyWireless.Items.Clear();
             MyWireless.ItemsSource = interfaces;
             MyWireless.SelectedItem = interfaces[0];
         }
 
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            SaveToFile();
             if (MyEthernet.SelectedItem == null)
             {
                 MessageBox.Show("Choose interfaces for surveys!");
                 return;
             }
+
             MToperationClass.EtherInt = MyEthernet.SelectedItem.ToString();
             MToperationClass.WirelessInt = MyWireless.SelectedItem.ToString();
+            SaveToFile();
+            quickInfoText.Text = "SAVED";
         }
 
         private void SaveToFile()
         {
             using (StreamWriter sw = File.CreateText(path))
             {
-                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+MTPassword.Text+"~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~");
+                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+MTPassword.Text+"~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~"+MToperationClass.isOlderMT+"~");
             }
         }
 
         private void LoadSettings_Click(object sender, RoutedEventArgs e)
         {
             if (!File.Exists(path)) return;
+            outputTest.Text = string.Empty;
+            LoadData();
+        }
 
+        private void LoadData()
+        {
             string lines = File.ReadAllText(path);
             string[] credentials = lines.Split(new char[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             MTIP.Text = credentials[0];
             MTLogin.Text = credentials[1];
             MTPassword.Text = credentials[2];
 
+            MToperationClass.isOlderMT = Boolean.Parse(credentials[5]);
+            MTisOld.IsChecked = MToperationClass.isOlderMT;
+
+
             MToperationClass.IP = MTIP.Text;
             MToperationClass.Login = MTLogin.Text;
             MToperationClass.Password = MTPassword.Text;
 
-            if (credentials.Length > 4)
-            {
-                MyEthernet.Items.Add(credentials[3]);
-                MyEthernet.SelectedItem = credentials[3];
-                MyWireless.Items.Add(credentials[4]);
-                MyWireless.SelectedItem = credentials[4];
+            MyEthernet.Items.Add(credentials[3]);
+            MyEthernet.SelectedItem = credentials[3];
+            MyWireless.Items.Add(credentials[4]);
+            MyWireless.SelectedItem = credentials[4];
 
-                MToperationClass.EtherInt = MyEthernet.SelectedItem.ToString();
-                MToperationClass.WirelessInt = MyWireless.SelectedItem.ToString();
-            }
+            MToperationClass.EtherInt = MyEthernet.SelectedItem.ToString();
+            MToperationClass.WirelessInt = MyWireless.SelectedItem.ToString();
+            quickInfoText.Text = "LOADED";
         }
     }
 }

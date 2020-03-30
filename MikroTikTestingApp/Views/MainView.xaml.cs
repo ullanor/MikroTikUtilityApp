@@ -28,15 +28,6 @@ namespace MikroTikTestingApp.Views
             InitializeComponent();
         }
 
-        //private void TestServer_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string test = "1000Mbs\n10:10:10";
-        //    //string test = "1000Mbs\n";
-        //    MessageBox.Show(test);
-        //    if(test.Length-12 > 0)
-        //        MessageBox.Show(test.Substring(0,test.Length-12));
-        //}
-
         private void StartTest_Click(object sender, RoutedEventArgs e)
         {
             if (MVVMmanager.isTesting)
@@ -45,6 +36,7 @@ namespace MikroTikTestingApp.Views
             if(int.Parse(CyclesCount.Text) < 2) { MessageBox.Show("Minimal number of surveys is 2"); return; }
             if (!MVVMmanager.isDBClear) { MessageBox.Show("You have to clear DB before next Test!"); return; }
             if (!CheckCredentials()) return;
+
             MVVMmanager.isDBClear = false;
             MVVMmanager.isTesting = true;
             MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text));
