@@ -55,6 +55,11 @@ namespace MikroTikTestingApp
             DataContext = new StatusWirViewModel();
         }
 
+        private void RateStatusView_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new StatusRateViewModel();
+        }
+
         private void CheckTestStatus()
         {
             Application.Current.Dispatcher.Invoke((Action)delegate

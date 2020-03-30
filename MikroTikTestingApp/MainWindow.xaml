@@ -9,6 +9,9 @@
         mc:Ignorable="d"
         Title="MT-pablo" Height="611.034" Width="1281.858" Loaded="WindowIsLoaded" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
+        <DataTemplate x:Name="StatusRateViewTemplate" DataType="{x:Type viewmodels:StatusRateViewModel}">
+            <views:StatusRateView DataContext="{Binding}"/>
+        </DataTemplate>
         <DataTemplate x:Name="StatusWirViewTemplate" DataType="{x:Type viewmodels:StatusWirViewModel}">
             <views:StatusWirView DataContext="{Binding}"/>
         </DataTemplate>
@@ -47,6 +50,7 @@
             <Button x:Name="SettingsView" Content="Conn Settings" FontSize="20" Focusable="False" Height="50" Click="SettingsView_Click"/>
             <Button x:Name="StatusView" Content="Ethernet Status" FontSize="20" Focusable="False" Height="50" Click="StatusView_Click"/>
             <Button x:Name="WirelessStatusView" Content="Wireless Status" FontSize="20" Focusable="False" Height="50" Click="WirelessStatusView_Click"/>
+            <Button x:Name="RateStatusView" Content="Rate Status" FontSize="20" Focusable="False" Height="50" Click="RateStatusView_Click"/>
             <TextBox x:Name="testStatus" Height="auto" Text="FALSE" FontSize="18" FontWeight="Bold" TextAlignment="Center" Background="White" Margin="0,50,0,0" IsReadOnly="True"/>
             <TextBox x:Name="testTime" Height="auto" FontSize="18" FontWeight="Bold" TextAlignment="Center" IsReadOnly="True"/>
             <Button x:Name="clearButton" Content="Clear Counter" FontSize="16" Focusable="False" Height="auto" Click="clearButton_Click"/>

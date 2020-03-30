@@ -28,11 +28,11 @@ namespace MikroTikTestingApp
             sqlite_conn.Close();
         }
 
-        public static void FillTables(string date,string ethStatus,string wirStatus)
+        public static void FillTables(string date,string ethStatus,string wirStatus,string rates)
         {
             SQLiteConnection sqlite_conn;
             sqlite_conn = CreateConnection();
-            InsertData(sqlite_conn,date,ethStatus,wirStatus);
+            InsertData(sqlite_conn,date,ethStatus,wirStatus,rates);
             sqlite_conn.Close();
         }
 
@@ -53,6 +53,17 @@ namespace MikroTikTestingApp
             SQLiteConnection sqlite_conn;
             sqlite_conn = CreateConnection();
             toReturn = ReadDataWir(sqlite_conn);
+            sqlite_conn.Close();
+            return toReturn;
+        }
+
+        //read rates
+        public static List<String> ReadFromRates()
+        {
+            List<string> toReturn = new List<string>();
+            SQLiteConnection sqlite_conn;
+            sqlite_conn = CreateConnection();
+            toReturn = ReadDataRates(sqlite_conn);
             sqlite_conn.Close();
             return toReturn;
         }
@@ -90,7 +101,7 @@ namespace MikroTikTestingApp
         {
 
             SQLiteCommand sqlite_cmd;
-            string Createsql = "CREATE TABLE IF NOT EXISTS MTStatus(CurTime VARCHAR(10), EthStatus VARCHAR(10), WirStatus VARCHAR(10))";
+            string Createsql = "CREATE TABLE IF NOT EXISTS MTStatus(CurTime VARCHAR(10), EthStatus VARCHAR(10), WirStatus VARCHAR(10), Rates VARCHAR(10))";
             sqlite_cmd = conn.CreateCommand();
             sqlite_cmd.CommandText = Createsql;
             sqlite_cmd.ExecuteNonQuery();
@@ -106,12 +117,12 @@ namespace MikroTikTestingApp
             sqlite_cmd.ExecuteNonQuery();
         }
 
-        static void InsertData(SQLiteConnection conn, string date, string ethStatus, string wirStatus)
+        static void InsertData(SQLiteConnection conn, string date, string ethStatus, string wirStatus, string rates)
         {
             SQLiteCommand sqlite_cmd;
             sqlite_cmd = conn.CreateCommand();
 
-            sqlite_cmd.CommandText = $"INSERT INTO MTStatus(CurTime, EthStatus, WirStatus) VALUES('{date}','{ethStatus}','{wirStatus}'); ";
+            sqlite_cmd.CommandText = $"INSERT INTO MTStatus(CurTime, EthStatus, WirStatus, Rates) VALUES('{date}','{ethStatus}','{wirStatus}','{rates}'); ";
             sqlite_cmd.ExecuteNonQuery();
         }
 
@@ -144,6 +155,24 @@ namespace MikroTikTestingApp
             while (sqlite_datareader.Read())
             {
                 toReturn.Add(sqlite_datareader.GetString(2) + "\n" + sqlite_datareader.GetString(0));
+            }
+
+            return toReturn;
+        }
+        //read rates
+
+        static List<string> ReadDataRates(SQLiteConnection conn)
+        {
+            List<string> toReturn = new List<string>();
+            SQLiteDataReader sqlite_datareader;
+            SQLiteCommand sqlite_cmd;
+            sqlite_cmd = conn.CreateCommand();
+            sqlite_cmd.CommandText = "SELECT * FROM MTStatus";
+
+            sqlite_datareader = sqlite_cmd.ExecuteReader();
+            while (sqlite_datareader.Read())
+            {
+                toReturn.Add(sqlite_datareader.GetString(3) + "\n" + sqlite_datareader.GetString(0));
             }
 
             return toReturn;

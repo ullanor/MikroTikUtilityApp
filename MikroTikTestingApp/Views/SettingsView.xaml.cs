@@ -76,7 +76,10 @@ namespace MikroTikTestingApp.Views
         {
             using (StreamWriter sw = File.CreateText(path))
             {
-                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+MTPassword.Text+"~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~"+MToperationClass.isOlderMT+"~");
+                string saveSave = MTPassword.Text;
+                if (saveSave == string.Empty)
+                    saveSave = "none";
+                sw.WriteLine(MTIP.Text+"~"+MTLogin.Text+"~"+ saveSave + "~"+MyEthernet.SelectedItem+ "~"+MyWireless.SelectedItem + "~"+MToperationClass.isOlderMT+"~");
             }
         }
 
@@ -93,7 +96,10 @@ namespace MikroTikTestingApp.Views
             string[] credentials = lines.Split(new char[] { '~' }, StringSplitOptions.RemoveEmptyEntries);
             MTIP.Text = credentials[0];
             MTLogin.Text = credentials[1];
-            MTPassword.Text = credentials[2];
+
+            if(credentials[2] == "none")
+                MTPassword.Text = string.Empty;
+            else MTPassword.Text = credentials[2];
 
             MToperationClass.isOlderMT = Boolean.Parse(credentials[5]);
             MTisOld.IsChecked = MToperationClass.isOlderMT;

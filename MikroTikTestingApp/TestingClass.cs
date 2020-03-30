@@ -15,13 +15,14 @@ namespace MikroTikTestingApp
 
         private int maxCycles = 10;
         private int counter = 0;
+        private string wirelessRates = string.Empty;
 
         public void StartTestAndTimer(int maxCycles)
         {
             this.maxCycles = maxCycles;
             counter = 0;
             timer = new System.Timers.Timer();
-            timer.Interval = 60000;
+            timer.Interval = 6000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
             try { CallEventElapsedTime(); }catch(Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
@@ -55,9 +56,11 @@ namespace MikroTikTestingApp
 
         public void CallEventElapsedTime()
         {
+            wirelessRates = string.Empty;
             string EthernetRate = MToperationClass.MikrotikGetEthernetRate();
-            string WirelessSignal = MToperationClass.MikrotikGetWirelessSignal();
-            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), EthernetRate, WirelessSignal);
+            string WirelessSignal = MToperationClass.MikrotikGetWirelessSignal(out wirelessRates);
+            //string WirelessRates = MToperationClass.MikrotikGetWirelessRates();
+            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), EthernetRate, WirelessSignal,wirelessRates);
             ElapsedTime?.Invoke();
         }
     }

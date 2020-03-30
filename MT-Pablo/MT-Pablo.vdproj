@@ -27,12 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2C48B575E1FB4CDBA55F50926EABCBF5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
         "OwnerKey" = "8:_7BF557AA3D9E48329BDAA41246020BB5"
         "MsmSig" = "8:_UNDEFINED"
@@ -57,13 +51,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8AE500071A6D4C25843AC2255D3BA2ED"
+        "MsmKey" = "8:_91B4C8C9FC964DD9BC7A3D441F61DC05"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_91B4C8C9FC964DD9BC7A3D441F61DC05"
+        "MsmKey" = "8:_B1DA13A398484873BB58E89F5BA5EB41"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -199,6 +193,11 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_179DD27CFB4DB1D82DD153D114EBE555"
+                    {
+                    "Name" = "8:System.Data.SQLite.Linq.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.Linq.dll"
             "TargetName" = "8:"
@@ -238,26 +237,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2C48B575E1FB4CDBA55F50926EABCBF5"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\iconka.ico"
-            "TargetName" = "8:iconka.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_CDD257154E674205AFCC0A7F36B3B324"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3B7B36B581CF830374FEDEFD93985C48"
             {
             "AssemblyRegister" = "3:1"
@@ -265,6 +244,11 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_3B7B36B581CF830374FEDEFD93985C48"
+                    {
+                    "Name" = "8:System.Data.SQLite.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.dll"
             "TargetName" = "8:"
@@ -282,26 +266,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8AE500071A6D4C25843AC2255D3BA2ED"
-            {
-            "SourcePath" = "8:..\\MikroTikTestingApp\\bin\\Debug\\MTpabloDB.db"
-            "TargetName" = "8:MTpabloDB.db"
-            "Tag" = "8:"
-            "Folder" = "8:_CDD257154E674205AFCC0A7F36B3B324"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91B4C8C9FC964DD9BC7A3D441F61DC05"
@@ -324,6 +288,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1DA13A398484873BB58E89F5BA5EB41"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\iconka.ico"
+            "TargetName" = "8:iconka.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_CDD257154E674205AFCC0A7F36B3B324"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B3A32CB670EFB62DEDB679B0B1144955"
             {
             "AssemblyRegister" = "3:1"
@@ -331,6 +315,11 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_B3A32CB670EFB62DEDB679B0B1144955"
+                    {
+                    "Name" = "8:System.Data.SQLite.EF6.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.EF6.dll"
             "TargetName" = "8:"
@@ -439,15 +428,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MT-Pablo"
-        "ProductCode" = "8:{8E104028-3C83-4D57-8A6B-968F673C1C44}"
-        "PackageCode" = "8:{17D8F7E7-16A3-4BA2-96B8-A27B4D24D262}"
+        "ProductCode" = "8:{A0D59956-BBE8-4698-9FB5-9AEDB90A3BD8}"
+        "PackageCode" = "8:{56C76F24-3D4F-4F46-9059-375CF4F8EA80}"
         "UpgradeCode" = "8:{1D825FBF-876A-4034-821E-F3FF9159096B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.5"
+        "ProductVersion" = "8:1.1.6"
         "Manufacturer" = "8:Pablo"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -457,7 +446,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:App for MT API"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_2C48B575E1FB4CDBA55F50926EABCBF5"
+        "ARPPRODUCTICON" = "8:_B1DA13A398484873BB58E89F5BA5EB41"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -571,7 +560,7 @@
             "Target" = "8:_7BF557AA3D9E48329BDAA41246020BB5"
             "Folder" = "8:_693EC348160B4375A1E3918625093BCD"
             "WorkingFolder" = "8:_CDD257154E674205AFCC0A7F36B3B324"
-            "Icon" = "8:_2C48B575E1FB4CDBA55F50926EABCBF5"
+            "Icon" = "8:_B1DA13A398484873BB58E89F5BA5EB41"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A7BF1802FDE0472D97F964257F5F4925"
@@ -585,7 +574,7 @@
             "Target" = "8:_7BF557AA3D9E48329BDAA41246020BB5"
             "Folder" = "8:_E16A76FE186B4FC286DD82D940AC3CCE"
             "WorkingFolder" = "8:_CDD257154E674205AFCC0A7F36B3B324"
-            "Icon" = "8:_2C48B575E1FB4CDBA55F50926EABCBF5"
+            "Icon" = "8:_B1DA13A398484873BB58E89F5BA5EB41"
             "Feature" = "8:"
             }
         }

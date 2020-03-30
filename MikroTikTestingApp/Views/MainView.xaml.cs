@@ -98,7 +98,7 @@ namespace MikroTikTestingApp.Views
             {
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    sw.WriteLine(row["CurTime"]+" "+ row["EthStatus"] + " "+ row["WirStatus"]);
+                    sw.WriteLine(row["CurTime"]+" "+ row["EthStatus"] + " "+ row["WirStatus"]+" "+row["Rates"]);
                 }
             }
             MessageBox.Show("File was created!");

@@ -112,24 +112,28 @@ namespace MikroTikTestingApp
             else return rate;
         }
 
-        //---------------------------- WIRELESS SIGNAL -------------------------------------------------------------------------------------------
-        public static string MikrotikGetWirelessSignal()
+        //---------------------------- WIRELESS SIGNAL and RATES -------------------------------------------------------------------------------------------
+        public static string MikrotikGetWirelessSignal(out string wirelessRates)
         {
             contResponse = string.Empty;
             try { mikrotik = new MK(IP); }
             catch (System.Net.Sockets.SocketException)
             {
+                wirelessRates = "conn err";
                 return "conn err";
             }
             bool logged = mikrotik.Login(Login, Password, out contResponse);
-            string signal = GetWirelessSignal(logged);
+            string signal = GetWirelessSignal(logged,out wirelessRates);
             mikrotik.Close();
             return signal;
         }
-        static string GetWirelessSignal(bool logged)
+        static string GetWirelessSignal(bool logged,out string WIRrates)
         {
             if (!logged)
+            {
+                WIRrates = "log err";
                 return "log err";
+            }
 
             mikrotik.Send("/interface/wireless/monitor");
             mikrotik.Send($"=numbers={WirelessInt}");
@@ -145,17 +149,25 @@ namespace MikroTikTestingApp
             respArray.RemoveAt(respArray.Count - 1);
 
             string signal = string.Empty;
+            WIRrates = string.Empty;
             for (int i = 0; i < respArray.Count; i++)
             {
                 if (respArray[i] == "signal-strength")
                 {
                     signal = respArray[i + 1];
+                    WIRrates = "Tx:"+respArray[i-7] +"\nRx:"+ respArray[i-5];//Tx/Rx
                     break;
                 }
             }
             if (signal == string.Empty)
+            {
+                WIRrates = "no signal";
                 return "no signal";
-            else return signal;
+            }
+            else
+            {
+                return signal;
+            }
         }
     }
 }
