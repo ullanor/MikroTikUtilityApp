@@ -17,8 +17,10 @@
 
         <TextBox Height="auto" Text="MT test" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Green"/>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox FontSize="18" Height="50" Width="auto" Text="(1min) Number of surveys: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True"/>
-            <TextBox x:Name="CyclesCount" FontSize="18" Height="50" Width="50" Text="10" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Number of surveys: " TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FF99DAFF"/>
+            <TextBox x:Name="CyclesCount" FontSize="18" Height="50" Width="50" Text="10" TextAlignment="Center" Padding="10" Margin="5,0,10,0"/>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Interval(sec): " TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FFD8D367"/>
+            <TextBox x:Name="CyclesInterval" FontSize="18" Height="50" Width="50" Text="60" TextAlignment="Center" Padding="10" Margin="5,0,5,0"/>
             <Button x:Name="StartTest" Content="Start MT Test" Focusable="False" FontSize="18" Height="50" Click="StartTest_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">

@@ -34,12 +34,14 @@ namespace MikroTikTestingApp.Views
                 return;
             try { int.Parse(CyclesCount.Text); } catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
             if(int.Parse(CyclesCount.Text) < 2) { MessageBox.Show("Minimal number of surveys is 2"); return; }
+            try { int.Parse(CyclesInterval.Text); } catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
+            if (int.Parse(CyclesInterval.Text) < 1) { MessageBox.Show("Minimal interval between surveys is 1"); return; }
             if (!MVVMmanager.isDBClear) { MessageBox.Show("You have to clear DB before next Test!"); return; }
             if (!CheckCredentials()) return;
 
             MVVMmanager.isDBClear = false;
             MVVMmanager.isTesting = true;
-            MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text));
+            MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text), int.Parse(CyclesInterval.Text));
         }
 
         private void StopTest_Click(object sender, RoutedEventArgs e)

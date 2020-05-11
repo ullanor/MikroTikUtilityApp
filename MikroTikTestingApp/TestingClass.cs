@@ -14,15 +14,17 @@ namespace MikroTikTestingApp
         private System.Timers.Timer timer;
 
         private int maxCycles = 10;
+        //private int cyclesInterval = 60000;
         private int counter = 0;
         private string wirelessRates = string.Empty;
 
-        public void StartTestAndTimer(int maxCycles)
+        public void StartTestAndTimer(int maxCycles, int cyclesInterval)
         {
             this.maxCycles = maxCycles;
+            //this.cyclesInterval = cyclesInterval * 1000;
             counter = 0;
             timer = new System.Timers.Timer();
-            timer.Interval = 60000;//60000
+            timer.Interval = cyclesInterval*1000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
             try { CallEventElapsedTime(); }catch(Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
