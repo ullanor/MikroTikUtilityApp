@@ -20,8 +20,13 @@ namespace MikroTikTestingApp
             number = -76;//xd
             if (input.Length - 9 > 0)
                 int.TryParse(input.Substring(0, input.Length - 9), out number);
-            if (number >= -75 && number != 0)
-                return Brushes.LightGreen;//Red
+
+            if (number >= -60 && number != 0)
+                return Brushes.LightGreen;
+
+            else if(number >= -75 && number != 0)
+                return Brushes.Yellow;
+
             else
                 return Brushes.Red; //return DependencyProperty.UnsetValue;
 

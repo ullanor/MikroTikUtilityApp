@@ -35,7 +35,7 @@ namespace MikroTikTestingApp
                 return Brushes.Red;
 
             number = input.Substring(3, r - 8);
-            float.TryParse(number.Replace('.', ','), out result);
+            float.TryParse(number/*.Replace('.', ',')*/, out result); //win 7 fix
 
             if(result >= 50)
                 return Brushes.LightGreen;
