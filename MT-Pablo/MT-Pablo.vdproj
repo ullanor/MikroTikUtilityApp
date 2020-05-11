@@ -34,13 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
-        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
+        "OwnerKey" = "8:_B3A32CB670EFB62DEDB679B0B1144955"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
-        "OwnerKey" = "8:_B3A32CB670EFB62DEDB679B0B1144955"
+        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,7 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
+        "OwnerKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
+        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -193,11 +193,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_179DD27CFB4DB1D82DD153D114EBE555"
-                    {
-                    "Name" = "8:System.Data.SQLite.Linq.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.Linq.dll"
             "TargetName" = "8:"
@@ -244,11 +239,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3B7B36B581CF830374FEDEFD93985C48"
-                    {
-                    "Name" = "8:System.Data.SQLite.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.dll"
             "TargetName" = "8:"
@@ -315,11 +305,6 @@
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B3A32CB670EFB62DEDB679B0B1144955"
-                    {
-                    "Name" = "8:System.Data.SQLite.EF6.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Data.SQLite.EF6.dll"
             "TargetName" = "8:"
@@ -428,15 +413,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MT-Pablo"
-        "ProductCode" = "8:{66584506-5836-437E-9D10-352A7CBED37C}"
-        "PackageCode" = "8:{BCE55025-242D-4F04-92BD-A6A3334B8C13}"
+        "ProductCode" = "8:{8034FE7B-DB30-48B2-A63C-F2E1C7814C04}"
+        "PackageCode" = "8:{694067B7-AA5B-43AC-A056-1E88D9DD9D2B}"
         "UpgradeCode" = "8:{1D825FBF-876A-4034-821E-F3FF9159096B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.7"
+        "ProductVersion" = "8:1.1.8"
         "Manufacturer" = "8:Pablo"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
