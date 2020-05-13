@@ -22,6 +22,8 @@ namespace MikroTikTestingApp
     public partial class MainWindow : Window
     {
         private int testCount = 0;
+        private bool testFinished = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -64,29 +66,32 @@ namespace MikroTikTestingApp
         {
             Application.Current.Dispatcher.Invoke((Action)delegate
             {
-                testCount++;
-                testTime.Text = testCount.ToString();
                 testStatus.Text = MVVMmanager.isTesting.ToString();
                 if (MVVMmanager.isTesting)
+                {
                     testStatus.Background = Brushes.Green;
-                else testStatus.Background = Brushes.White;
+                    if(testFinished)
+                    {
+                        testFinished = false;
+                        testCount = 0;
+                    }
+                }
+                else
+                {
+                    testStatus.Background = Brushes.White;
+                    testFinished = true;
+                }
+                testCount++;
+                testTime.Text = testCount.ToString();
             });
         }
 
         private void clearButton_Click(object sender, RoutedEventArgs e)
         {
-            testCount = 0;
-            testTime.Text = string.Empty;
+            //testCount = 0;
+            //testTime.Text = string.Empty; --> older reset func
+
+            MessageBox.Show(MToperationClass.MikrotikRecvBytes() + " total bytes received (ether)");
         }
-
-        //private void CameraView_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataContext = new CameraViewModel();
-        //}
-
-        //private void MainView_Click(object sender, RoutedEventArgs e)
-        //{
-        //    DataContext = new MainViewModel();
-        //}
     }
 }

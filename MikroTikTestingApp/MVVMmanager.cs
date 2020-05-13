@@ -10,6 +10,6 @@ namespace MikroTikTestingApp
     {
         public static TestingClass TS;
         public static bool isTesting;
-        public static bool isDBClear;
+        //public static bool isDBClear;
     }
 }

@@ -23,9 +23,14 @@ namespace MikroTikTestingApp.Views
     public partial class MainView : UserControl
     {
         //private bool isDBclear;
+        private string NoOfSurveys = string.Empty;
+        private string SurveysInterval = string.Empty;
+        private List<string> checkList;
+
         public MainView()
         {
             InitializeComponent();
+            FileName.Text = MToperationClass.MTserialNo;
         }
 
         private void StartTest_Click(object sender, RoutedEventArgs e)
@@ -36,12 +41,16 @@ namespace MikroTikTestingApp.Views
             if(int.Parse(CyclesCount.Text) < 2) { MessageBox.Show("Minimal number of surveys is 2"); return; }
             try { int.Parse(CyclesInterval.Text); } catch (Exception ex) { MessageBox.Show(ex.ToString()); return; }
             if (int.Parse(CyclesInterval.Text) < 1) { MessageBox.Show("Minimal interval between surveys is 1"); return; }
-            if (!MVVMmanager.isDBClear) { MessageBox.Show("You have to clear DB before next Test!"); return; }
+            checkList = SQLiteClass.ReadFromEther();
+            if (/*!MVVMmanager.isDBClear*/checkList.Count != 0) { MessageBox.Show("You have to clear DB before next Test!"); return; }
             if (!CheckCredentials()) return;
 
-            MVVMmanager.isDBClear = false;
+            //MVVMmanager.isDBClear = false;
             MVVMmanager.isTesting = true;
             MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text), int.Parse(CyclesInterval.Text));
+
+            NoOfSurveys = CyclesCount.Text;
+            SurveysInterval = CyclesInterval.Text;
         }
 
         private void StopTest_Click(object sender, RoutedEventArgs e)
@@ -78,7 +87,7 @@ namespace MikroTikTestingApp.Views
             if (dialogResult == System.Windows.Forms.DialogResult.Yes)
             {
                 SQLiteClass.ClearTables();
-                MVVMmanager.isDBClear = true;
+                //MVVMmanager.isDBClear = true;
             }
             else if (dialogResult == System.Windows.Forms.DialogResult.No)
             {
@@ -96,11 +105,18 @@ namespace MikroTikTestingApp.Views
                 return;
             }
 
+            //entry file info (date,name,etc)
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine("MT-serial: "+ MToperationClass.MTserialNo);
+                sw.WriteLine("SurveyTime: " + DateTime.Now.ToString("dd-MM-yyyy - hh:mm:ss"));
+                sw.WriteLine("Surveys: " + NoOfSurveys + " Interval: "+ SurveysInterval + Environment.NewLine);
+            }
             foreach (DataRow row in dt.Rows)
             {
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    sw.WriteLine(row["CurTime"]+" "+ row["EthStatus"] + " "+ row["WirStatus"]+" "+row["Rates"]);
+                    sw.WriteLine("UpTime: "+row["UpTime"]+" || EthLink: "+ row["EthStatus"] + " || WirSignal: "+ row["WirStatus"]+" || WirRates: "+row["Rates"]);
                 }
             }
             MessageBox.Show("File was created!");

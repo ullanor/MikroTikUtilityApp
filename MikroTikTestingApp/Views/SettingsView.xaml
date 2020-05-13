@@ -26,6 +26,12 @@
                     <ScaleTransform ScaleX="2" ScaleY="2" />
                 </CheckBox.LayoutTransform>
             </CheckBox>
+            <TextBox FontSize="18" Height="50" Width="auto" Text="Alt" TextAlignment="Center" Padding="10" IsReadOnly="True" Background="#FFFF8C56" Margin="10,0,5,0"/>
+            <CheckBox x:Name="AlterMT" Height="auto" Width="auto" VerticalAlignment="Center">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2" />
+                </CheckBox.LayoutTransform>
+            </CheckBox>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox FontSize="18" Height="50" Width="auto" Text="Login: " TextAlignment="Center" Padding="10" Margin="5,0,0,0" IsReadOnly="True" Background="#FF99DAFF"/>
