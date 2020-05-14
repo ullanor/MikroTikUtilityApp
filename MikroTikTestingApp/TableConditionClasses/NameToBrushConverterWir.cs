@@ -17,9 +17,17 @@ namespace MikroTikTestingApp
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             input = value as string;
-            number = -76;//xd
-            if (input.Length - 9 > 0)
-                int.TryParse(input.Substring(0, input.Length - 9), out number);
+            if (input.Length < 3)
+                return Brushes.Red;
+            if (input.Contains("no"))
+                return Brushes.Red;
+
+            //int.TryParse(input.Substring(0, 3), out number);
+            //MessageBox.Show(number.ToString());
+            //MessageBox.Show(number >= -60 ? "wieksze" : " mniejsze");
+            //number = -76;//xd
+            //if (input.Length - 9 > 0)
+            int.TryParse(input.Substring(0, 3), out number);
 
             if (number >= -60 && number != 0)
                 return Brushes.LightGreen;

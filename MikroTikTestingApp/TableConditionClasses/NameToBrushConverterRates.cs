@@ -20,11 +20,9 @@ namespace MikroTikTestingApp
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             input = value as string;
-            //if (input != string.Empty && input.Length > 18)
-            //    return Brushes.LightGreen;//Red
-            //else
-            //    return Brushes.Red; //return DependencyProperty.UnsetValue;
             if (input.Length < 3)
+                return Brushes.Red;
+            if (input.Contains("no"))
                 return Brushes.Red;
             //MessageBox.Show(input.Length.ToString());
 

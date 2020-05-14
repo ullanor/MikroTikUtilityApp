@@ -63,11 +63,14 @@ namespace MikroTikTestingApp
         public void CallEventElapsedTime()
         {
             wirelessRates = string.Empty;
-            MTupTime = MToperationClass.MikrotikGetUpTime();
-            EthernetRate = MToperationClass.MikrotikGetEthernetRate();
-            WirelessSignal = MToperationClass.MikrotikGetWirelessSignal(out wirelessRates);
-            //string WirelessRates = MToperationClass.MikrotikGetWirelessRates();
-            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), MTupTime, EthernetRate, WirelessSignal,wirelessRates);
+            try
+            {
+                MTupTime = MToperationClass.MikrotikGetUpTime();
+                EthernetRate = MToperationClass.MikrotikGetEthernetRate();
+                WirelessSignal = MToperationClass.MikrotikGetWirelessSignal(out wirelessRates);
+                SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), MTupTime, EthernetRate, WirelessSignal,wirelessRates);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
             ElapsedTime?.Invoke();
         }
     }

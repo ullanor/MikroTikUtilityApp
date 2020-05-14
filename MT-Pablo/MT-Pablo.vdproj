@@ -34,13 +34,13 @@
         "Entry"
         {
         "MsmKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
-        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
+        "OwnerKey" = "8:_B3A32CB670EFB62DEDB679B0B1144955"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
-        "OwnerKey" = "8:_B3A32CB670EFB62DEDB679B0B1144955"
+        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,7 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
+        "OwnerKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3B7B36B581CF830374FEDEFD93985C48"
+        "OwnerKey" = "8:_179DD27CFB4DB1D82DD153D114EBE555"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -413,15 +413,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MT-Pablo"
-        "ProductCode" = "8:{F76FFADC-27FF-441D-9F69-5C53C3CC8755}"
-        "PackageCode" = "8:{147AC64E-A225-42F2-8FDB-2A3463E9D2C2}"
+        "ProductCode" = "8:{8BB0EA26-83EC-4E8E-BADC-22EA80D08101}"
+        "PackageCode" = "8:{7397D487-63C1-4175-84CE-F1C5D11AA303}"
         "UpgradeCode" = "8:{1D825FBF-876A-4034-821E-F3FF9159096B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.2.5"
+        "ProductVersion" = "8:1.2.6"
         "Manufacturer" = "8:Pablo"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

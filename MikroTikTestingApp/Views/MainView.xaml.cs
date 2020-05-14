@@ -23,8 +23,8 @@ namespace MikroTikTestingApp.Views
     public partial class MainView : UserControl
     {
         //private bool isDBclear;
-        private string NoOfSurveys = string.Empty;
-        private string SurveysInterval = string.Empty;
+        //private string NoOfSurveys = string.Empty;
+        //private string SurveysInterval = string.Empty;
         private List<string> checkList;
 
         public MainView()
@@ -49,8 +49,8 @@ namespace MikroTikTestingApp.Views
             MVVMmanager.isTesting = true;
             MVVMmanager.TS.StartTestAndTimer(int.Parse(CyclesCount.Text), int.Parse(CyclesInterval.Text));
 
-            NoOfSurveys = CyclesCount.Text;
-            SurveysInterval = CyclesInterval.Text;
+            MVVMmanager.NoOfCycles = CyclesCount.Text;
+            MVVMmanager.CyclesInterval = CyclesInterval.Text;
         }
 
         private void StopTest_Click(object sender, RoutedEventArgs e)
@@ -110,7 +110,7 @@ namespace MikroTikTestingApp.Views
             {
                 sw.WriteLine("MT-serial: "+ MToperationClass.MTserialNo);
                 sw.WriteLine("SurveyTime: " + DateTime.Now.ToString("dd-MM-yyyy - hh:mm:ss"));
-                sw.WriteLine("Surveys: " + NoOfSurveys + " Interval: "+ SurveysInterval + Environment.NewLine);
+                sw.WriteLine("Surveys: " + MVVMmanager.NoOfCycles + " Interval: "+ MVVMmanager.CyclesInterval + Environment.NewLine);
             }
             foreach (DataRow row in dt.Rows)
             {
