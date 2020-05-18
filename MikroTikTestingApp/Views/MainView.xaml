@@ -25,11 +25,26 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="StopTest" Content="Stop MT Test" Focusable="False" FontSize="18" Height="50" Click="StopTest_Click"/>
+            <Button x:Name="ClearDB" Content="Clear DB" Focusable="False" FontSize="18" Height="50" Foreground="#FFEA4747" Margin="10" Click="ClearDB_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBox x:Name="FileName" FontSize="18" Height="50" Width="auto" Text="Name of Exported File" TextAlignment="Center" Padding="10"/>
-            <Button x:Name="ExportDB" Content="Export Current DB" Focusable="False" FontSize="18" Height="50" Foreground="#FF1F469B" Margin="5" Click="ExportDB_Click"/>
-            <Button x:Name="ClearDB" Content="Clear DB" Focusable="False" FontSize="18" Height="50" Foreground="#FFEA4747" Click="ClearDB_Click"/>
+            <Button x:Name="ExportDB" Content="Export Current DB" Focusable="False" FontSize="18" Height="50" Foreground="White" Margin="5" Click="ExportDB_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FF9CE8B1" Offset="0"/>
+                        <GradientStop Color="#FF288F44" Offset="0.993"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ImportDB" Content="Import DB" Focusable="False" FontSize="18" Height="50" Margin="5" Foreground="White" Click="ImportDB_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF5A8A8" Offset="0"/>
+                        <GradientStop Color="#FFAE1111" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

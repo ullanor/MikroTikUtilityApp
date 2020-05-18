@@ -57,7 +57,7 @@ namespace MikroTikTestingApp
                 StopTestAndTimer();
                 return;
             }
-            CallEventElapsedTime();
+            try { CallEventElapsedTime(); } catch (Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
         }
 
         public void CallEventElapsedTime()

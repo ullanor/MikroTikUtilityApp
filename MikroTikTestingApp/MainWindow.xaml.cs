@@ -1,6 +1,7 @@
 ﻿using MikroTikTestingApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +28,7 @@ namespace MikroTikTestingApp
         public MainWindow()
         {
             InitializeComponent();
-            SQLiteClass.CreateTables();
+            //SQLiteClass.CreateTables();
             MVVMmanager.TS = new TestingClass();
             MVVMmanager.TS.ElapsedTime += CheckTestStatus;
         }
@@ -44,6 +45,8 @@ namespace MikroTikTestingApp
 
         private void StatusView_Click(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(MVVMmanager.MainDBpath))
+                return;
             DataContext = new StatusViewModel();
         }
 
@@ -54,11 +57,15 @@ namespace MikroTikTestingApp
 
         private void WirelessStatusView_Click(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(MVVMmanager.MainDBpath))
+                return;
             DataContext = new StatusWirViewModel();
         }
 
         private void RateStatusView_Click(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(MVVMmanager.MainDBpath))
+                return;
             DataContext = new StatusRateViewModel();
         }
 

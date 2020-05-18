@@ -11,7 +11,7 @@ namespace MikroTikTestingApp
 {
     static class SQLiteClass
     {
-        static string path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MTpabloDB.db";
+        static string path = MVVMmanager.MainDBpath;
         public static void CreateTables()
         {
             SQLiteConnection sqlite_conn;

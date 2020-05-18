@@ -13,5 +13,7 @@ namespace MikroTikTestingApp
         //public static bool isDBClear;
         public static string NoOfCycles;
         public static string CyclesInterval;
+
+        public static string MainDBpath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\MTpabloDB.db";
     }
 }
