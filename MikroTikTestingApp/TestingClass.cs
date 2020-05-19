@@ -31,7 +31,9 @@ namespace MikroTikTestingApp
             timer.Interval = cyclesInterval*1000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
-            try { CallEventElapsedTime(); }catch(Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
+            try { CallEventElapsedTime(); }catch(Exception ex) { /*StopTimerQuickly(); MessageBox.Show(ex.ToString());*/
+                CallEventElapsedTimeEmpty();
+            }
         }
 
         public void StopTestAndTimer()
@@ -57,7 +59,9 @@ namespace MikroTikTestingApp
                 StopTestAndTimer();
                 return;
             }
-            try { CallEventElapsedTime(); } catch (Exception ex) { StopTimerQuickly(); MessageBox.Show(ex.ToString()); }
+            try { CallEventElapsedTime(); } catch (Exception ex) { /*StopTimerQuickly(); MessageBox.Show(ex.ToString());*/
+                CallEventElapsedTimeEmpty();
+            }
         }
 
         public void CallEventElapsedTime()
@@ -71,6 +75,17 @@ namespace MikroTikTestingApp
                 SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), MTupTime, EthernetRate, WirelessSignal,wirelessRates);
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            ElapsedTime?.Invoke();
+        }
+
+        private void CallEventElapsedTimeEmpty()
+        {
+            MTupTime = "no signal";
+            EthernetRate = "no signal";
+            WirelessSignal = "no signal";
+            wirelessRates = "no signal";
+
+            SQLiteClass.FillTables(DateTime.Now.ToString("hh:mm:ss"), MTupTime, EthernetRate, WirelessSignal, wirelessRates);
             ElapsedTime?.Invoke();
         }
     }
