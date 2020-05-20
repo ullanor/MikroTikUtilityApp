@@ -55,7 +55,7 @@ namespace MikroTikTestingApp.Views
             {
                 TV = new TableValues
                 {
-                    lp = (i+1).ToString(),
+                    lp = i.ToString(),
                     value1 = testList[i * 10],
                     value2 = testList[i * 10 + 1],
                     value3 = testList[i * 10 + 2],
