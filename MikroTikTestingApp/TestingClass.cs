@@ -44,12 +44,12 @@ namespace MikroTikTestingApp
             CallEventElapsedTime();
         }
 
-        private void StopTimerQuickly()
-        {
-            if (timer != null)
-                timer.Dispose();
-            MVVMmanager.isTesting = false;
-        }
+        //private void StopTimerQuickly()
+        //{
+        //    if (timer != null)
+        //        timer.Dispose();
+        //    MVVMmanager.isTesting = false;
+        //}
 
         private void OnTimerEllapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
@@ -62,6 +62,20 @@ namespace MikroTikTestingApp
             try { CallEventElapsedTime(); } catch (Exception ex) { /*StopTimerQuickly(); MessageBox.Show(ex.ToString());*/
                 CallEventElapsedTimeEmpty();
             }
+        }
+
+        public void CallEventElapsedTimeFirst()
+        {
+            wirelessRates = string.Empty;
+            try
+            {
+                MTupTime = MToperationClass.MikrotikGetUpTime();
+                EthernetRate = MToperationClass.MikrotikGetEthernetRate();
+                WirelessSignal = MToperationClass.MikrotikGetWirelessSignal(out wirelessRates);
+                SQLiteClass.FillTables(MToperationClass.MTserialNo, MTupTime, EthernetRate, WirelessSignal, wirelessRates);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
+            ElapsedTime?.Invoke();
         }
 
         public void CallEventElapsedTime()
