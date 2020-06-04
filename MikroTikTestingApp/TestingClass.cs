@@ -31,7 +31,7 @@ namespace MikroTikTestingApp
             timer.Interval = cyclesInterval*1000;
             timer.Elapsed += OnTimerEllapsed;
             timer.Start();
-            try { CallEventElapsedTime(); }catch(Exception ex) { /*StopTimerQuickly(); MessageBox.Show(ex.ToString());*/
+            try { CallEventElapsedTimeFirst(); }catch(Exception ex) { /*StopTimerQuickly(); MessageBox.Show(ex.ToString());*/
                 CallEventElapsedTimeEmpty();
             }
         }
