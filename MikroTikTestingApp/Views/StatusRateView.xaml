@@ -16,13 +16,13 @@
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <Button Width="auto" Height="auto" Content="Clear" Click="Button_Click_1"/>
-            <TextBox Width="80" Height="100" Text="{Binding TextT}"/>
+            <!--<Button Width="auto" Height="auto" Content="Clear" Click="Button_Click_1"/>-->
+            <TextBox x:Name="myText" Width="200" Height="auto" Text="{Binding TextT}" FontSize="20"/>
         </StackPanel>
 
         <!-- TABLE STARTS HERE -->
         <!-- STATUS TABLE CODE STARTS HERE -->
-        <DataGrid x:Name="testGrid" Grid.Row="1" FontSize="16">
+        <DataGrid x:Name="testGrid" Grid.Row="1" FontSize="16" IsReadOnly="True" MouseDoubleClick="testGrid_MouseDoubleClick">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="Turquoise"/>

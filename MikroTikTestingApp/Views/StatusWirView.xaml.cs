@@ -81,6 +81,17 @@ namespace MikroTikTestingApp.Views
             public string value9 { get; set; }
             public string value10 { get; set; }
         }
+
+        private void testGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                var cellInfo = testGrid.SelectedCells[int.Parse(testGrid.CurrentCell.Column.Header.ToString())];
+                TextBlock tb = cellInfo.Column.GetCellContent(cellInfo.Item) as TextBlock;
+                //MessageBox.Show(tb.Text);
+                myText.Text = tb.Text;
+            }catch(Exception ex) { myText.Text = ex.ToString(); }
+        }
     }
 
 }

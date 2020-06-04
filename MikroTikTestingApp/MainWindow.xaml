@@ -7,7 +7,7 @@
         xmlns:viewmodels="clr-namespace:MikroTikTestingApp.ViewModels"
         xmlns:views="clr-namespace:MikroTikTestingApp.Views"
         mc:Ignorable="d"
-        Title="MT-pablo" Height="611.034" Width="1281.858" Loaded="WindowIsLoaded" WindowStartupLocation="CenterScreen">
+        Title="MT-pablo" Height="629.034" Width="1281.858" Loaded="WindowIsLoaded" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate x:Name="StatusRateViewTemplate" DataType="{x:Type viewmodels:StatusRateViewModel}">
             <views:StatusRateView DataContext="{Binding}"/>

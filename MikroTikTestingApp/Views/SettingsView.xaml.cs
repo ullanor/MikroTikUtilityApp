@@ -43,7 +43,7 @@ namespace MikroTikTestingApp.Views
             MToperationClass.IP = MTIP.Text;
             MToperationClass.Login = MTLogin.Text;
             MToperationClass.Password = MTPassword.Text;
-            MToperationClass.MikrotikGetSerial();
+            try { MToperationClass.MikrotikGetSerial();}catch(Exception ex) { outputTest.Text = ex.ToString(); }
         }
 
         private void GetInterfacesFromMT()
@@ -134,7 +134,7 @@ namespace MikroTikTestingApp.Views
             MToperationClass.EtherInt = MyEthernet.SelectedItem.ToString();
             MToperationClass.WirelessInt = MyWireless.SelectedItem.ToString();
             quickInfoText.Text = "LOADED";
-            MToperationClass.MikrotikGetSerial();
+            try { MToperationClass.MikrotikGetSerial(); } catch (Exception ex) { outputTest.Text = ex.ToString(); }
         }
     }
 }
